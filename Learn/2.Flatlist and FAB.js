@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Card } from "react-native-paper";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import { Card, FAB } from "react-native-paper";
 
 export default function Home() {
   const data = [
@@ -9,8 +9,16 @@ export default function Home() {
     { id: "2", name: "Raaj2", position: "Dev2" },
     { id: "3", name: "Raaj", position: "Dev" },
     { id: "4", name: "Raaj2", position: "Dev2" },
+    { id: "1", name: "Raaj", position: "Dev" },
+    { id: "2", name: "Raaj2", position: "Dev2" },
+    { id: "3", name: "Raaj", position: "Dev" },
+    { id: "4", name: "Raaj2", position: "Dev2" },
+    { id: "1", name: "Raaj", position: "Dev" },
+    { id: "2", name: "Raaj2", position: "Dev2" },
+    { id: "3", name: "Raaj", position: "Dev" },
+    { id: "4", name: "Raaj2", position: "Dev2" },
   ];
-  const renderList = data.map((item) => {
+  const renderList = (item) => {
     return (
       <Card style={styles.myCard}>
         <View style={{ flexDirection: "row" }}>
@@ -29,10 +37,24 @@ export default function Home() {
         </View>
       </Card>
     );
-  });
+  };
   return (
     <View>
-      {renderList}
+      {/* {renderList} */}
+      <FlatList
+        data={data}
+        renderItem={(item) => {
+          return renderList(item);
+        }}
+        keyExtractor={(item) => item.id}
+      />
+      <FAB
+        style={styles.fab}
+        big
+        icon="plus"
+        theme={{colors :{accent : 'skyblue'}}}
+        onPress={() => console.log("Pressed")}
+      />
     </View>
   );
 }
@@ -43,5 +65,11 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#fff",
     justifyContent: "center",
+  },
+  fab: {
+    position: "absolute",
+    margin: 16,
+    right: 0,
+    top: 0,
   },
 });
