@@ -49,8 +49,8 @@ const CreateEmployee = () => {
       <Button icon="upload" mode="contained" onPress={() => setmodal(true)}>
         Upload
       </Button>
-      <Button style={{marginTop : 15}} icon="upload" mode="contained" onPress={() => setmodal(true)}>
-        Upload
+      <Button style={{marginTop : 15}} icon="content-save" mode="contained" onPress={() => setmodal(true)}>
+        Save
       </Button>
       <Modal
         animationType="slide"
