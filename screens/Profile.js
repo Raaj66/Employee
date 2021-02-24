@@ -4,7 +4,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Title, Card, Button } from "react-native-paper";
 import { MaterialIcons, Entypo } from "@expo/vector-icons";
 
-const Profile = () => {
+const Profile = (props) => {
+const {id,name,position,Email,phone}=props.route.params.item;
    const openDial =()=>{
         if(Platform.OS === "android"){
             Linking.openURL("tel:6465566")
@@ -12,6 +13,7 @@ const Profile = () => {
             Linking.openURL("telprompt:6465566")
         }
     }
+
   return (
     <View style={styles.root}>
       {/* <Text>dhbx</Text> */}
@@ -29,8 +31,8 @@ const Profile = () => {
         />
       </View>
       <View style={{ alignItems: "center", margin: 15 }}>
-        <Title>Raaj</Title>
-        <Text style={{ fontSize: 25 }}>React native dev</Text>
+        <Title></Title>
+        <Text style={{ fontSize: 25 }}>{position}</Text>
       </View>
       <Card style={styles.myCard}>
         <View style={styles.cardContent}>
@@ -38,7 +40,7 @@ const Profile = () => {
               Linking.openURL("mailto:Abc@abc.com")
           }} />
           <Text style={{ fontSize: 25, marginLeft: 10, marginBottom: 5 }}>
-            Abc@abc.com
+            {Email}
           </Text>
         </View>
       </Card>
@@ -46,7 +48,7 @@ const Profile = () => {
         <View style={styles.cardContent}>
           <Entypo name="phone" size={24} color="black" onPress={()=>openDial()} />
           <Text style={{ fontSize: 25, marginLeft: 10, marginBottom: 5 }}>
-            544888415
+           {phone}
           </Text>
         </View>
       </Card>

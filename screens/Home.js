@@ -1,18 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Card } from "react-native-paper";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import { Card, FAB } from "react-native-paper";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const data = [
-    { id: "1", name: "Raaj", position: "Dev" },
-    { id: "2", name: "Raaj2", position: "Dev2" },
-    { id: "3", name: "Raaj", position: "Dev" },
-    { id: "4", name: "Raaj2", position: "Dev2" },
+    { id: "1", name: "Raaj", position: "Dev",  Email: "Dev@gmail.com",phone:"3435"},
+    { id: "2", name: "Raaj2", position: "Devdz2",Email: "@gmail.com",phone:"348555535" },
+    { id: "3", name: "Raajdfg", position: "Devdsfc",Email: "Devsdxc@gmail.com",phone:"343dxc5"},
   ];
-  const renderList = data.map((item) => {
+  const renderList = (item) => {
+    // console.log(item)
     return (
-      <Card style={styles.myCard}>
+      <Card
+        style={styles.myCard}
+        onPress={() => navigation.navigate("Profile",{
+          item
+        })}
+      >
         <View style={{ flexDirection: "row" }}>
           <Image
             style={{ height: 50, width: 60, borderRadius: "50%" }}
@@ -29,10 +34,24 @@ export default function Home() {
         </View>
       </Card>
     );
-  });
+  };
   return (
-    <View>
-      {renderList}
+    <View style={{ flex: 1 }}>
+      {/* {renderList} */}
+      <FlatList
+        data={data}
+        renderItem={(item) => {
+          return renderList(item);
+        }}
+        keyExtractor={(item) => item.id}
+      />
+      <FAB
+        style={styles.fab}
+        big
+        icon="plus"
+        theme={{ colors: { accent: "skyblue" } }}
+        onPress={() => props.navigation.navigate("CreateEmployee")}
+      />
     </View>
   );
 }
@@ -43,5 +62,11 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#fff",
     justifyContent: "center",
+  },
+  fab: {
+    position: "absolute",
+    margin: 16,
+    right: 0,
+    bottom: 10,
   },
 });
