@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, Modal } from "react-native";
+import { StyleSheet, Text, View, Image, Modal,alert } from "react-native";
 import { TextInput, Button } from "react-native-paper";
+import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions'
 
 const CreateEmployee = () => {
   const [Name, setName] = useState("");
@@ -9,6 +11,35 @@ const CreateEmployee = () => {
   const [salary, setsalary] = useState("");
   const [picture, setpicture] = useState("");
   const [modal, setmodal] = useState(false);
+
+const pickFromCamera= async ()=>{
+ const {granted} =  await Permissions.askAsync(Permissions.CAMERA)
+ if(granted){
+ let data =  await ImagePicker.launchCameraAsync({
+    mediaTypes:ImagePicker.MediaTypeOptions.Images,
+    allowsEditing : true,
+    aspect:[1,1],
+    quality:0.5
+  })
+  console.log("From Camera",data)
+ }else{
+  alert("error")
+ }
+}
+const pickFromGallery = async ()=>{
+ const {granted} =  await Permissions.askAsync(Permissions.CAMERA_ROLL)
+ if(granted){
+ let data =  await ImagePicker.launchImageLibraryAsync({
+    mediaTypes:ImagePicker.MediaTypeOptions.Images,
+    allowsEditing : true,
+    aspect:[1,1],
+    quality:0.5
+  })
+  console.log("From Image picker",data)
+ }else{
+  alert("error")
+ }
+}
 
   return (
     <View style={styles.root}>
@@ -49,9 +80,9 @@ const CreateEmployee = () => {
       <Button icon="upload" mode="contained" onPress={() => setmodal(true)}>
         Upload
       </Button>
-      <Button style={{marginTop : 15}} icon="upload" mode="contained" onPress={() => setmodal(true)}>
+      {/* <Button style={{marginTop : 15}} icon="upload" mode="contained" onPress={() => setmodal(true)}>
         Upload
-      </Button>
+      </Button> */}
       <Modal
         animationType="slide"
         transparent={true}
@@ -66,7 +97,7 @@ const CreateEmployee = () => {
               icon="camera"
               mode="contained"
               theme={{colors : {primary : 'skyblue'}}}
-              onPress={() => setmodal(false)}
+              onPress={() =>pickFromCamera()}
             >
               Camera
             </Button>
@@ -75,7 +106,7 @@ const CreateEmployee = () => {
               icon="folder"
               mode="contained"
               theme={{colors : {primary : 'skyblue'}}}
-              onPress={() => setmodal(false)}
+              onPress={() => pickFromGallery()}
             >
               Gallery
             </Button>

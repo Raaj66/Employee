@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
       >
         <View style={{ flexDirection: "row" }}>
           <Image
-            style={{ height: 50, width: 60, borderRadius: "50%" }}
+            style={{ height: 50, width: 60}}
             source={{
               uri: "https://www.pngrepo.com/download/86725/person.png",
             }}
@@ -50,7 +50,7 @@ export default function Home({ navigation }) {
         big
         icon="plus"
         theme={{ colors: { accent: "skyblue" } }}
-        onPress={() => props.navigation.navigate("CreateEmployee")}
+        onPress={() => navigation.navigate("CreateEmployee")}
       />
     </View>
   );

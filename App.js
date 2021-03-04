@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import Home from "./screens/Home";
 import CreateEmployee from "./screens/CreateEmployee";
 import Profile from "./screens/Profile";
+import YourApp from './External Leran/Map'
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
@@ -40,6 +41,7 @@ function App() {
       {/* <Home /> */}
       {/* <CreateEmployee /> */}
       {/* <Profile /> */}
+      {/* <YourApp /> */}
     </View>
   );
 }
