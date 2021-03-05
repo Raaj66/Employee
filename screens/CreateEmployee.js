@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, Modal,alert } from "react-native";
+import { StyleSheet, Text, View, Image, Modal} from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions'
@@ -23,7 +23,7 @@ const pickFromCamera= async ()=>{
   })
   console.log("From Camera",data)
  }else{
-  alert("error")
+ console.log("err")
  }
 }
 const pickFromGallery = async ()=>{
@@ -37,7 +37,7 @@ const pickFromGallery = async ()=>{
   })
   console.log("From Image picker",data)
  }else{
-  alert("error")
+  console.log("err")
  }
 }
 

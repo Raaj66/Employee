@@ -18,11 +18,11 @@ const myOptions = {
   },
 };
 
-function App() {
+export default function App() {
   return (
     <View>
       {/* headerMode="none" to remove header */}
-      <Stack.Navigator initialRouteName="CreateEmployee">
+      <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={Home}
