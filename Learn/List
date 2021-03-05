@@ -1,0 +1,47 @@
+1.Introduction
+=Intro
+=project overview = creating employee
+=code / github
+
+2.install
+=intsall in expo
+=understanding code like view styles and etc
+
+3.creating Screens
+=creating screen data.map and rendering some data
+=Flatlist
+=Create emplyee screen used Linear Gradient
+=epmloyee detail screen
+
+=Adding textInput And modal
+=Linking Open Gmail and Dialer
+
+4.React Navigation 
+=install nav packages
+=header customization
+=routing between homepage=CreateEmployee=EmplyeeDetailsScreen
+
+5.Camera/Gallery
+==Using ImagePicker launch Camera/Gallery
+=Upload image/media to Cloudinary
+
+6.Backend
+= create server folder
+=install node ,
+ init project = npm init -y
+ install
+ express (framework)
+ body-parser(take data from input)
+ mongoose= to connect with mongoDB 
+ nodemon(to automate)
+
+mongoDB
+create account = google signin
+click on name = create new project
+build cluster = free option
+network option = assign IP address 
+database = create new user and create password(IMP)
+cluster = click on connect = connect app = copy the url
+
+
+
