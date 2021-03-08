@@ -1,0 +1,9 @@
+create Modal or schema (blueprint)
+
+it requires mongoose
+create model like a function
+const EmployeeSchema = new mongoose.Schema({
+
+define the store type that we store
+
+write code for if(connect){sometging} else { something}

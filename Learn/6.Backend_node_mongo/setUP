@@ -1,0 +1,36 @@
+6.Backend
+= create server folder
+=install node ,
+ init project = npm init -y
+ install
+ express (framework)
+ body-parser(take data from input)
+ mongoose= to connect with mongoDB 
+ nodemon(to automate)
+
+mongoDB
+create account = google signin
+click on name = create new project
+build cluster = free option
+network option = assign IP address 
+database = create new user and create password(IMP)
+cluster = click on connect = connect app = copy the url
+
+//Code
+const express = require('express');
+const app = express()
+const bodyparser = require('body-parser')
+const mongoose = require('mongoose')
+
+// pass : 1234
+const mongoUrl = "mongodb+srv://raaj:1234@cluster0.oup8q.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+app.get('/',(req,res)=>{
+    res.send("Welcome to node")
+})
+
+app.listen(3000,()=>{
+    console.log(" server running")
+})
+
+
+

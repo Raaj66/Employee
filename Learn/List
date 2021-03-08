@@ -26,22 +26,9 @@
 =Upload image/media to Cloudinary
 
 6.Backend
-= create server folder
-=install node ,
- init project = npm init -y
- install
- express (framework)
- body-parser(take data from input)
- mongoose= to connect with mongoDB 
- nodemon(to automate)
+=server/node/create project/express/body-parser/mongoose/nodemon
+=mongoDB = create account/cluster/Add IP add/create user/connect copy url/paste in code
 
-mongoDB
-create account = google signin
-click on name = create new project
-build cluster = free option
-network option = assign IP address 
-database = create new user and create password(IMP)
-cluster = click on connect = connect app = copy the url
 
 
 
