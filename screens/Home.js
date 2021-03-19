@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   myCard: {
     margin: 10,
     padding: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "red",
     justifyContent: "center",
   },
   fab: {

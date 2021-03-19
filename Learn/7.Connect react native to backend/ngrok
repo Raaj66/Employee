@@ -1,0 +1,8 @@
+ngrok
+dynamically give an url
+install ngrok = npm i
+
+npx ngrok http port num 3000
+http://cb523171161e.ngrok.io/
+
+to make permanent deploy server in heroku i..e cloud

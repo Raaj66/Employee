@@ -15,7 +15,7 @@ mongoose.connect(mongoUrl,{
     useUnifiedTopology : true
 })
 mongoose.connection.on("connected",()=>{
-    console.log("COnected to mongoDb yeeeeah");
+    console.log("Conected to mongoDb yeeeeah");
 })
 mongoose.connection.on("error",(err)=>{
     console.log("error",err);

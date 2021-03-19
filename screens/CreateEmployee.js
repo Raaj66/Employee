@@ -5,12 +5,34 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions'
 
 const CreateEmployee = () => {
-  const [Name, setName] = useState("");
+  const [name, setname] = useState("");
   const [phone, setphone] = useState("");
   const [email, setemail] = useState("");
   const [salary, setsalary] = useState("");
+  const [position, setposition] = useState("");
   const [picture, setpicture] = useState("");
   const [modal, setmodal] = useState(false);
+
+  const submitData = ()=>{
+    fetch("http://localhost:3000/send",{
+      method : "post",
+      headers : {
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify({
+        name,
+        phone,
+        email,
+        salary,
+        position,
+        picture
+      })
+      .then((res)=>res.json())
+      .then((data)=>{
+        console.log(data)
+      })
+    })
+  }
 
 const pickFromCamera= async ()=>{
  const {granted} =  await Permissions.askAsync(Permissions.CAMERA)
@@ -45,11 +67,11 @@ const pickFromGallery = async ()=>{
     <View style={styles.root}>
       <TextInput
         style={{ margin: 5 }}
-        label="Name"
-        value={Name}
+        label="name"
+        value={name}
         mode={"outlined"}
         theme={{ colors: { primary: "red" } }}
-        onChangeText={(text) => setName(text)}
+        onChangeText={(text) => setname(text)}
       />
       <TextInput
         style={{ margin: 5 }}
@@ -77,7 +99,16 @@ const pickFromGallery = async ()=>{
         theme={{ colors: { primary: "red" } }}
         onChangeText={(text) => setsalary(text)}
       />
-      <Button icon="upload" mode="contained" onPress={() => setmodal(true)}>
+        <TextInput
+        style={{ margin: 5 }}
+        label="position"
+        value={position}
+        mode={"outlined"}
+        theme={{ colors: { primary: "red" } }}
+        onChangeText={(text) => setposition(text)}
+      />
+      <Button
+       icon="upload" mode="contained" onPress={() => setmodal(true)}>
         Upload
       </Button>
       {/* <Button style={{marginTop : 15}} icon="upload" mode="contained" onPress={() => setmodal(true)}>
